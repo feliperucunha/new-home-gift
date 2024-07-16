@@ -9,7 +9,7 @@ function Banner() {
     });
   };
 
-  const [showArrow, setShowArrow] = React.useState(false);
+  const [showArrow, setShowArrow] = React.useState(true);
 
   React.useEffect(() => {
     const handleScroll = () => {
