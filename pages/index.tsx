@@ -24,7 +24,6 @@ export default function Home({ posts }: Props) {
 
       <Banner />
 
-
       <div className='flex sm:justify-between items-center h-[90vh] sm:h-[100vh] px-10 flex-col sm:flex-row text-left'>
         <div className='sm:pr-6 pt-8 sm:pt-0 pb-8 sm:pb-0'>
           <p className='text-2xl rounded-md'>
@@ -60,7 +59,7 @@ export default function Home({ posts }: Props) {
         </div>
       </div>
 
-      <div className='h-[80vh] bg-cover bg-center bg-no-repeat' style={{ backgroundImage: "url('/images/footer-bg.jpeg')" }}>
+      <div className='h-[90vh] bg-cover bg-center bg-no-repeat' style={{ backgroundImage: "url('/images/footer-bg.jpeg')" }}>
         <div className='mx-8 pt-20'>
           <h1 className='text-[#F5B971] text-2xl pb-6'>
             NÃO ACHOU O QUE QUERIA?
