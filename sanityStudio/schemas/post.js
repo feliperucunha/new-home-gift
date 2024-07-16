@@ -5,22 +5,24 @@ export default {
   fields: [
     {
       name: 'title',
-      title: 'Title',
+      title: 'Nome',
       type: 'string',
     },
     {
-      name: 'description',
-      title: 'Description',
+      name: 'link',
+      title: 'Link',
       type: 'string',
     },
     {
-      name: 'slug',
-      title: 'Slug',
-      type: 'slug',
-      options: {
-        source: 'title',
-        maxLength: 96,
-      },
+      name: 'price',
+      title: 'Valor',
+      type: 'string',
+    },
+    {
+      name: 'comments',
+      title: 'Comprador',
+      type: 'array',
+      of: [{ type: 'reference', to: { type: 'comment' } }],
     },
     {
       name: 'author',
@@ -30,27 +32,16 @@ export default {
     },
     {
       name: 'mainImage',
-      title: 'Main image',
+      title: 'Foto',
       type: 'image',
       options: {
         hotspot: true,
       },
     },
     {
-      name: 'categories',
-      title: 'Categories',
-      type: 'array',
-      of: [{type: 'reference', to: {type: 'category'}}],
-    },
-    {
       name: 'publishedAt',
       title: 'Published at',
       type: 'datetime',
-    },
-    {
-      name: 'body',
-      title: 'Body',
-      type: 'blockContent',
     },
   ],
 

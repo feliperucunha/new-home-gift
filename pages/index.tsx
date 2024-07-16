@@ -96,14 +96,19 @@ export const getServerSideProps = async () => {
     *[_type == "post"] {
       _id,
       title,
-      slug,
+      link,
+      price,
+      buyer,
       author -> {
         name,
         image
       },
-      description,
-      mainImage,
-      body
+    'comments': *[
+      _type == 'comment' &&
+      post._ref == ^._id &&
+      approved == true
+    ],
+      mainImage
     }
   `;
   const posts = await sanityClient.fetch(query);

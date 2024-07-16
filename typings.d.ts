@@ -4,15 +4,14 @@ export interface Post {
   _id: string;
   _createdAt: string;
   title: string;
-  slug: {
-    current: string;
-  };
+  price: string;
+  buyer: string;
   author: {
     name: string;
     image: string;
   };
   comments: [Comment];
-  description: string;
+  link: string;
   mainImage: {
     asset: {
       url: string;
