@@ -25,12 +25,6 @@ export default {
       of: [{ type: 'reference', to: { type: 'comment' } }],
     },
     {
-      name: 'author',
-      title: 'Author',
-      type: 'reference',
-      to: {type: 'author'},
-    },
-    {
       name: 'mainImage',
       title: 'Foto',
       type: 'image',
@@ -44,18 +38,4 @@ export default {
       type: 'datetime',
     },
   ],
-
-  preview: {
-    select: {
-      title: 'title',
-      author: 'author.name',
-      media: 'mainImage',
-    },
-    prepare(selection) {
-      const {author} = selection
-      return Object.assign({}, selection, {
-        subtitle: author && `by ${author}`,
-      })
-    },
-  },
 }

@@ -99,10 +99,6 @@ export const getServerSideProps = async () => {
       link,
       price,
       buyer,
-      author -> {
-        name,
-        image
-      },
     'comments': *[
       _type == 'comment' &&
       post._ref == ^._id &&
