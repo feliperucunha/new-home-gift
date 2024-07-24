@@ -32,8 +32,8 @@ function Banner() {
           CASTELO DO FELIPE
         </h1>
         <div className='flex items-center justify-center flex-col sm:flex-row'>
-        <p className='line-through text-[#E5E5E8] text-3xl pr-3'>CHÁ</p> 
-          <h1 className='text-3xl font-bold font-serif text-[#E5E5E8]'>
+        <p className='line-through text-[#E5E5E8] text-3xl pr-3' style={{ fontFamily: 'Poppins, sans-serif' }}>CHÁ</p> 
+          <h1 className='text-3xl font-bold font-serif text-[#E5E5E8]' style={{ fontFamily: 'Poppins, sans-serif' }}>
             CHURRASCO DE CASA NOVA
           </h1>
         </div>

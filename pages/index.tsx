@@ -61,7 +61,7 @@ export default function Home({ posts }: Props) {
 
       <div className='mt-20 mb-12'>
 
-        <h1 className='text-center text-4xl text-[#DFBF93] pb-8'>PRESENTES</h1>
+        <h1 className='text-center text-4xl text-[#DFBF93] pb-8' style={{ fontFamily: 'Uncial Antiqua, serif' }}>PRESENTES</h1>
 
         <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6 p-2 md:p-6 mx-4'>
           <Posts posts={posts} />
@@ -70,21 +70,21 @@ export default function Home({ posts }: Props) {
 
       <div className='h-[90vh] bg-cover bg-center bg-no-repeat' style={{ backgroundImage: "url('/images/footer-bg.jpeg')" }}>
         <div className='mx-8 pt-20'>
-          <h1 className='text-[#F5B971] text-2xl pb-6'>
+          <h1 className='text-[#F5B971] text-2xl pb-6' style={{ fontFamily: 'Uncial Antiqua, serif' }}>
             NÃO ACHOU O QUE QUERIA?
           </h1>
-          <p className='text-[#F4F1ED] text-base mx-4'>
+          <p className='text-[#F4F1ED] text-base mx-4' style={{ fontFamily: 'Poppins, sans-serif' }}>
             Não tem problema, caso ainda queira presentar com algo você pode contribuir diretamente pelo Pix abaixo para que o Felipe possa comprar um robô aspirador no Paraguai no natal hehehe.
           </p>
         </div>
         <div className='mt-8 mx-12'>
-          <p className='text-[#F4F1ED]'>Pix Copia e cola:</p>
+          <p className='text-[#F4F1ED]' style={{ fontFamily: 'Poppins, sans-serif' }}>Pix Copia e cola:</p>
           <div className='bg-white rounded-md'>
             <CopyToClipboard text={'00020126330014BR.GOV.BCB.PIX0111013129372975204000053039865802BR5925Felipe Ruben Costa da Cun6009SAO PAULO62140510VQ6dDL1nEp6304E28B'} />
           </div>
         </div>
         <div className='mt-2 mx-12'>
-          <p className='text-[#F4F1ED]'>Pix CPF:</p>
+          <p className='text-[#F4F1ED]' style={{ fontFamily: 'Poppins, sans-serif' }}>Pix CPF:</p>
           <div className='bg-white rounded-md'>
             <CopyToClipboard text={'01312937297'} />
           </div>
@@ -93,7 +93,7 @@ export default function Home({ posts }: Props) {
           <img src='/images/qr-code.jpeg' className='w-60 h-70' />
         </div>
       </div>
-      <div className='text-white bg-[#3C1E1E] text-center'>
+      <div className='text-white bg-[#3C1E1E] text-center' style={{ fontFamily: 'Poppins, sans-serif' }}>
         Por favor, confirme sua presença.
       </div>
     </div>
