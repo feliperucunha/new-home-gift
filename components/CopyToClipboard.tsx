@@ -21,7 +21,7 @@ const CopyToClipboard = ({ text }: any) => {
       <div className="relative">
         <button
           onClick={copyToClipboard}
-          className="px-4 py-2 bg-blue-500 text-white rounded-md shadow-sm hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+          className="px-4 py-2 bg-[#c19157] text-white rounded-md shadow-sm hover:bg-[#c19157] focus:outline-none focus:ring-2 focus:ring-[#c19157] focus:ring-opacity-50"
         >
           {copied ? 'Copiado!' : 'Copiar'}
         </button>

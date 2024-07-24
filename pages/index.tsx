@@ -4,8 +4,11 @@ import { sanityClient } from '../sanity'
 import { Post } from '../typings';
 import Banner from '../components/Banner';
 import Posts from '../components/Posts';
-import { CiLocationOn, CiClock1 } from "react-icons/ci";
+import { GiCrossMark } from "react-icons/gi";
 import CopyToClipboard from '../components/CopyToClipboard';
+import ClockIcon from '../components/ClockIcon';
+import DragonIcon from '../components/DragonIcon';
+import MapButton from '../components/MapButton';
 
 interface Props {
   posts: [Post];
@@ -13,7 +16,7 @@ interface Props {
 
 export default function Home({ posts }: Props) {
   return (
-    <div className='' style={{
+    <div className='overflow-hidden' style={{
       background: `#3C1E1E`
     }}>
       {/* <div className='max-w-7xl mx-auto' style={{ backgroundImage: "url('/images/bricks.png')" }}> */}
@@ -24,30 +27,36 @@ export default function Home({ posts }: Props) {
 
       <Banner />
 
-      <div className='flex sm:justify-between items-center h-[90vh] sm:h-[100vh] px-10 flex-col sm:flex-row text-left'>
+      <div className='flex sm:justify-between items-center h-[100vh] sm:h-[100vh] px-10 flex-col sm:flex-row text-left'>
         <div className='sm:pr-6 pt-8 sm:pt-0 pb-8 sm:pb-0'>
           <p className='text-2xl rounded-md'>
-            <p className='text-4xl pb-8 sm:pb-16 text-[#B59A86]'>Gostaríamos de celebrar com o Felipe essa nova fase com um chá de casa nova.</p>
-            <p className='text-base text-[#E5E5E8]'>Este site foi criado para dar detalhes do evento e também facilitar a escolha de presentes, caso você queira dar algum, que vão ajudar Felipe a montar seu novo lar.</p>
-            <p className='text-base text-[#E5E5E8]'>Aqui você encontrará itens selecionados com carinho para tornar a casa de Felipe ainda mais especial e acolhedora.</p>
+            <p className='text-4xl pb-8 sm:pb-16 text-[#B59A86]' style={{ fontFamily: 'Uncial Antiqua, serif' }}>Gostaríamos de celebrar com o Felipe essa nova fase com um chá de casa nova.</p>
+            <p className='text-base text-[#E5E5E8]' style={{ fontFamily: 'Poppins, sans-serif' }}>Este site foi criado para dar detalhes do evento e também facilitar a escolha de presentes, caso você queira dar algum, que vão ajudar Felipe a montar seu novo lar.</p>
+            <p className='text-base text-[#E5E5E8]' style={{ fontFamily: 'Poppins, sans-serif' }}>Aqui você encontrará itens selecionados com carinho para tornar a casa de Felipe ainda mais especial e acolhedora.</p>
           </p>
         </div>
-        <img
-          src="images/foto-casa.jpeg"
-          alt="Portrait"
-          className="object-cover rounded-lg shadow-md shadow-black h-72 sm:ml-0 ml-20"
-        />
+        <div className='relative bottom-36 left-12'>
+          <img
+            src="images/foto-casa.jpeg"
+            alt="Portrait"
+            className="object-cover h-auto"
+          />
+        </div>
       </div>
 
       <div className='flex justify-center items-center flex-col h-[60vh] sm:h-[100vh] bg-no-repeat bg-left-top bg-cover' style={{ backgroundImage: "url('/images/mapa.png')" }}>
-        <div className='flex items-center pb-6 text-xl text-[#E5E5E8]'>
-          <CiLocationOn />
-          <p className='pl-2'>RUA FRANCISCO MAURER, 2395</p>
+        <div className='mt-8 px-8'>
+          <div className='flex items-center pb-6 text-xl text-[#E5E5E8]'>
+            <GiCrossMark fill='#F5B971' stroke='#F5B971' />
+            <p className='pl-2 ' style={{ fontFamily: 'Uncial Antiqua, serif' }}>RUA FREDERICO MAURER, 2395</p>
+          </div>
+          <div className='flex items-center text-xl text-[#E5E5E8] mb-8'>
+            <ClockIcon fill='#F5B971' />
+            <p className='pl-2' style={{ fontFamily: 'Uncial Antiqua, serif' }}>12/08/2024 ÀS 19H</p>
+          </div>
+          <MapButton address="RUA FREDERICO MAURER, 2395" />
         </div>
-        <div className='flex items-center text-xl text-[#E5E5E8]'>
-          <CiClock1 />
-          <p className='pl-2'>12/08/2024 ÀS 19H</p>
-        </div>
+        <DragonIcon height='300px' className='relative left-48 top-20 mt-[-4.5rem]' fill='#c19157' />
       </div>
 
       <div className='mt-20 mb-12'>
@@ -80,8 +89,8 @@ export default function Home({ posts }: Props) {
             <CopyToClipboard text={'01312937297'} />
           </div>
         </div>
-        <div className='flex justify-center items-center pt-8'>
-          <img src='/images/qr-code.jpeg' className='w-56 h-56' />
+        <div className='flex justify-center items-center pt-0 h-1/3'>
+          <img src='/images/qr-code.jpeg' className='w-60 h-70' />
         </div>
       </div>
       <div className='text-white bg-[#3C1E1E] text-center'>

@@ -27,8 +27,8 @@ function Banner() {
   return (
     <div className='flex justify-center items-center pb-16 sm:pb-0 border-y border-black border-t-0 bg-red-900 lg:py-5 w-full h-[100vh] bg-no-repeat bg-center bg-cover' style={{ backgroundImage: "url('/images/top-bg.png')" }}>
       <div className='text-center'>
-        <p className='text-[#E5E5E8] pb-8'>BEM VINDO AO</p>
-        <h1 className='sm:text-7xl text-5xl font-bold font-serif text-[#E5E5E8] px-10 pb-6'>
+        <p className='text-[#E5E5E8] pb-6' style={{ fontFamily: 'Uncial Antiqua, serif' }}>BEM VINDO AO</p>
+        <h1 className='sm:text-7xl text-5xl font-bold font-serif text-[#E5E5E8] px-10 pb-6' style={{ fontFamily: 'Uncial Antiqua, serif' }}>
           CASTELO DO FELIPE
         </h1>
         <div className='flex items-center justify-center flex-col sm:flex-row'>

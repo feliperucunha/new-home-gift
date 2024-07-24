@@ -18,7 +18,7 @@ function Posts({ posts }: Props) {
   return (
     <>
       {posts.map(post => (
-        <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+        <div className={`w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 ${post?.comments[0] ? 'opacity-70' : 'opacity-100'}`}>
           <div className='min-h-[20rem] min-w-[20rem] flex items-center justify-center'>
             <img className="p-8 rounded-t-lg object-contain max-w-full max-h-full" src={urlFor(post.mainImage).url()!} alt="product image" />
           </div>
@@ -31,7 +31,7 @@ function Posts({ posts }: Props) {
             </a>
             <div className="flex items-center justify-between">
               <span className="text-3xl font-bold text-gray-900 dark:text-white">R${post.price}</span>
-              <button onClick={handleButton} disabled={!!post?.comments[0]} className={`text-white hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center  ${post?.comments[0] ? '!bg-slate-400' : 'bg-blue-700'}`}>{post?.comments[0] ? `Reservado por ${post?.comments[0].name}` : 'Presentear'}</button>
+              <button onClick={handleButton} disabled={!!post?.comments[0]} className={`text-white hover:bg-[#80613a] focus:ring-4 focus:outline-none focus:ring-[#c19157] font-medium rounded-lg text-sm px-5 py-2.5 text-center  ${post?.comments[0] ? '!bg-slate-400' : 'bg-[#c19157]'}`}>{post?.comments[0] ? `Reservado por ${post?.comments[0].name}` : 'Presentear'}</button>
             </div>
           </div>
           {isOpen && <Modal setOpen={setOpen} id={post._id} link={post.link} item={post.title} />}
