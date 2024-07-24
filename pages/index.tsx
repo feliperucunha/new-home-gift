@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Header from '../components/Header'
+import React from 'react';
 import { sanityClient } from '../sanity'
 import { Post } from '../typings';
 import Banner from '../components/Banner';
@@ -9,12 +10,17 @@ import CopyToClipboard from '../components/CopyToClipboard';
 import ClockIcon from '../components/ClockIcon';
 import DragonIcon from '../components/DragonIcon';
 import MapButton from '../components/MapButton';
+import PresenceModal from '../components/PresenceModal';
 
 interface Props {
   posts: [Post];
 }
 
 export default function Home({ posts }: Props) {
+  const [isOpen, setOpen] = React.useState(false)
+  const handleButton = () => {
+    setOpen(true)
+  }
   return (
     <div className='overflow-hidden' style={{
       background: `#3C1E1E`
@@ -35,7 +41,7 @@ export default function Home({ posts }: Props) {
             <p className='text-base text-[#E5E5E8]' style={{ fontFamily: 'Poppins, sans-serif' }}>Aqui você encontrará itens selecionados com carinho para tornar a casa de Felipe ainda mais especial e acolhedora.</p>
           </p>
         </div>
-        <div className='relative bottom-36 left-12'>
+        <div className='relative bottom-36'>
           <img
             src="images/foto-casa.jpeg"
             alt="Portrait"
@@ -45,7 +51,7 @@ export default function Home({ posts }: Props) {
       </div>
 
       <div className='flex justify-center items-center flex-col h-[60vh] sm:h-[100vh] bg-no-repeat bg-left-top bg-cover mt-16' style={{ backgroundImage: "url('/images/mapa.png')" }}>
-        <div className='mt-8 px-8'>
+        <div className='mt-32 px-8'>
           <div className='flex items-center pb-6 text-xl text-[#E5E5E8]'>
             <GiCrossMark fill='#F5B971' stroke='#F5B971' />
             <p className='pl-2 ' style={{ fontFamily: 'Uncial Antiqua, serif' }}>RUA FREDERICO MAURER, 2395</p>
@@ -55,8 +61,10 @@ export default function Home({ posts }: Props) {
             <p className='pl-2' style={{ fontFamily: 'Uncial Antiqua, serif' }}>12/08/2024 ÀS 19H</p>
           </div>
           <MapButton address="RUA FREDERICO MAURER, 2395" />
+          <button onClick={handleButton} className={`mt-8 text-white hover:bg-[#80613a] focus:ring-4 focus:outline-none focus:ring-[#783131] font-medium rounded-md text-sm px-5 py-2.5 text-center bg-[#783131]`}>Confirmar Presença</button>
+          {isOpen && <PresenceModal setOpen={setOpen} />}
         </div>
-        <DragonIcon height='300px' className='relative left-48 top-20 mt-[-4.5rem]' fill='#c19157' />
+        <DragonIcon height='300px' className='relative left-48 top-20 mt-[-13rem]' fill='#c19157' />
       </div>
 
       <div className='mt-20 mb-12'>
