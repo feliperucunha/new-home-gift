@@ -44,7 +44,7 @@ export default function Home({ posts }: Props) {
         </div>
       </div>
 
-      <div className='flex justify-center items-center flex-col h-[60vh] sm:h-[100vh] bg-no-repeat bg-left-top bg-cover' style={{ backgroundImage: "url('/images/mapa.png')" }}>
+      <div className='flex justify-center items-center flex-col h-[60vh] sm:h-[100vh] bg-no-repeat bg-left-top bg-cover mt-16' style={{ backgroundImage: "url('/images/mapa.png')" }}>
         <div className='mt-8 px-8'>
           <div className='flex items-center pb-6 text-xl text-[#E5E5E8]'>
             <GiCrossMark fill='#F5B971' stroke='#F5B971' />
