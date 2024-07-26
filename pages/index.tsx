@@ -41,7 +41,7 @@ export default function Home({ posts }: Props) {
             <p className='text-base text-[#E5E5E8]' style={{ fontFamily: 'Poppins, sans-serif' }}>Aqui você encontrará itens selecionados com carinho para tornar a casa de Felipe ainda mais especial e acolhedora.</p>
           </p>
         </div>
-        <div className='relative bottom-36'>
+        <div className='relative bottom-36 sm:flex sm:justify-center sm:align-middle sm:static'>
           <img
             src="images/foto-casa.jpeg"
             alt="Portrait"
@@ -51,20 +51,22 @@ export default function Home({ posts }: Props) {
       </div>
 
       <div className='flex justify-center items-center flex-col h-[60vh] sm:h-[100vh] bg-no-repeat bg-left-top bg-cover mt-16' style={{ backgroundImage: "url('/images/mapa.png')" }}>
-        <div className='mt-32 px-8'>
+        <div className='mt-32 px-8 sm:mt-[15rem]'>
           <div className='flex items-center pb-6 text-xl text-[#E5E5E8]'>
             <GiCrossMark fill='#F5B971' stroke='#F5B971' />
-            <p className='pl-2 ' style={{ fontFamily: 'Uncial Antiqua, serif' }}>RUA FREDERICO MAURER, 2395</p>
+            <p className='pl-2 sm:text-4xl' style={{ fontFamily: 'Uncial Antiqua, serif' }}>RUA FREDERICO MAURER, 2395</p>
           </div>
           <div className='flex items-center text-xl text-[#E5E5E8] mb-8'>
             <ClockIcon fill='#F5B971' />
-            <p className='pl-2' style={{ fontFamily: 'Uncial Antiqua, serif' }}>12/08/2024 ÀS 19H</p>
+            <p className='pl-2 sm:text-4xl' style={{ fontFamily: 'Uncial Antiqua, serif' }}>12/08/2024 ÀS 19H</p>
           </div>
-          <MapButton address="RUA FREDERICO MAURER, 2395" />
-          <button onClick={handleButton} className={`mt-8 text-white hover:bg-[#80613a] focus:ring-4 focus:outline-none focus:ring-[#783131] font-medium rounded-md text-sm px-5 py-2.5 text-center bg-[#783131]`}>Confirmar Presença</button>
+          <div className='flex flex-col w-52 sm:w-60'>
+            <MapButton address="RUA FREDERICO MAURER, 2395" />
+            <button onClick={handleButton} className={`mt-8 w-auto text-white hover:bg-[#80613a] focus:ring-4 focus:outline-none focus:ring-[#783131] font-medium rounded-md text-sm px-5 py-2.5 text-center bg-[#783131]`}>Confirmar Presença</button>
+          </div>
           {isOpen && <PresenceModal setOpen={setOpen} />}
         </div>
-        <DragonIcon height='300px' className='relative left-48 top-20 mt-[-13rem]' fill='#c19157' />
+        <DragonIcon height='300px' className='relative left-48 top-20 mt-[-13rem] sm:h-[35rem] sm:left-[30rem] sm:mt-[-10rem]' fill='#c19157' />
       </div>
 
       <div className='mt-20 mb-12'>
@@ -76,7 +78,7 @@ export default function Home({ posts }: Props) {
         </div>
       </div>
 
-      <div className='h-[90vh] bg-cover bg-center bg-no-repeat' style={{ backgroundImage: "url('/images/footer-bg.jpeg')" }}>
+      <div className='h-[100vh] w-[100vw] bg-cover bg-center bg-no-repeat' style={{ backgroundImage: "url('/images/footer-bg.jpeg')" }}>
         <div className='mx-8 pt-20'>
           <h1 className='text-[#F5B971] text-2xl pb-6' style={{ fontFamily: 'Uncial Antiqua, serif' }}>
             NÃO ACHOU O QUE QUERIA?
@@ -85,16 +87,18 @@ export default function Home({ posts }: Props) {
             Não tem problema, caso ainda queira presentar com algo você pode contribuir diretamente pelo Pix abaixo para que o Felipe possa comprar um robô aspirador no Paraguai no natal hehehe.
           </p>
         </div>
-        <div className='mt-8 mx-12'>
-          <p className='text-[#F4F1ED]' style={{ fontFamily: 'Poppins, sans-serif' }}>Pix Copia e cola:</p>
-          <div className='bg-white rounded-md'>
-            <CopyToClipboard text={'00020126330014BR.GOV.BCB.PIX0111013129372975204000053039865802BR5925Felipe Ruben Costa da Cun6009SAO PAULO62140510VQ6dDL1nEp6304E28B'} />
+        <div className='sm:flex sm:justify-center sm:items-center sm:flex-col'>
+          <div className='mt-8 mx-12 sm:w-80'>
+            <p className='text-[#F4F1ED]' style={{ fontFamily: 'Poppins, sans-serif' }}>Pix Copia e cola:</p>
+            <div className='bg-white rounded-md'>
+              <CopyToClipboard text={'00020126330014BR.GOV.BCB.PIX0111013129372975204000053039865802BR5925Felipe Ruben Costa da Cun6009SAO PAULO62140510VQ6dDL1nEp6304E28B'} />
+            </div>
           </div>
-        </div>
-        <div className='mt-2 mx-12'>
-          <p className='text-[#F4F1ED]' style={{ fontFamily: 'Poppins, sans-serif' }}>Pix CPF:</p>
-          <div className='bg-white rounded-md'>
-            <CopyToClipboard text={'01312937297'} />
+          <div className='mt-2 mx-12 sm:w-80'>
+            <p className='text-[#F4F1ED]' style={{ fontFamily: 'Poppins, sans-serif' }}>Pix CPF:</p>
+            <div className='bg-white rounded-md'>
+              <CopyToClipboard text={'01312937297'} />
+            </div>
           </div>
         </div>
         <div className='flex justify-center items-center pt-0 h-1/3'>

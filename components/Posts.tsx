@@ -20,7 +20,7 @@ function Posts({ posts }: Props) {
       {posts.map(post => (
         <div className={`w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 ${post?.comments[0] ? 'opacity-70' : 'opacity-100'}`}>
           <div className='min-h-[20rem] min-w-[20rem] flex items-center justify-center'>
-            <img className="p-8 rounded-t-lg object-contain max-w-full max-h-full" src={urlFor(post.mainImage).url()!} alt="product image" />
+            <img className="p-8 rounded-t-lg object-contain max-w-full max-h-60" src={urlFor(post.mainImage).url()!} alt="product image" />
           </div>
           <div className="px-5 pb-5">
             <a href={post.link} target="_blank">
