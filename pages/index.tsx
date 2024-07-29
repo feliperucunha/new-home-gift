@@ -29,6 +29,11 @@ export default function Home({ posts }: Props) {
       <Head>
         <title>Casa Nova | Felipe</title>
         <link rel="icon" href="/favicon.ico" />
+        <meta property="og:title" content="Your Website Title" />
+        <meta property="og:description" content="A brief description of your website" />
+        <meta property="og:image" content="https://new-home-gift.vercel.app/public/previewPic.png" />
+        <meta property="og:url" content="https://new-home-gift.vercel.app/" />
+        <meta property="og:type" content="website" />
       </Head>
 
       <Banner />
