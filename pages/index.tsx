@@ -29,9 +29,9 @@ export default function Home({ posts }: Props) {
       <Head>
         <title>Casa Nova | Felipe</title>
         <link rel="icon" href="/favicon.ico" />
-        <meta property="og:title" content="Your Website Title" />
-        <meta property="og:description" content="A brief description of your website" />
-        <meta property="og:image" content="https://new-home-gift.vercel.app/public/previewPic.png" />
+        <meta property="og:title" content="Chá de casa nova do Felipe" />
+        <meta property="og:description" content="Um centro de informações sobre o evento junto com a lista de presentes." />
+        <meta property="og:image" content="https://cdn.sanity.io/images/s5efbgcc/production/02d87a6dcd00586b8d5e2811e8df0c89d6f7d577-1088x1106.png" />
         <meta property="og:url" content="https://new-home-gift.vercel.app/" />
         <meta property="og:type" content="website" />
       </Head>
