@@ -6,7 +6,12 @@ function Modal({ setOpen, id, link, item }: any) {
   const [input, setInput] = useState("")
   const [error, setError] = useState(false)
   const [showLink, setShowLink] = useState(false)
-  const handleClose = () => setOpen(false)
+  const handleClose = () => {
+    setOpen(false)
+    if (showLink) {
+      window.location.reload();
+    }
+  }
 
   const handleInput = (e: any) => {
     setInput(e.target.value)
@@ -29,6 +34,7 @@ function Modal({ setOpen, id, link, item }: any) {
     if (input) {
       setShowLink(true)
       onSubmit(input)
+      setInput('')
     } else {
       setError(true)
     }
@@ -37,6 +43,7 @@ function Modal({ setOpen, id, link, item }: any) {
   const handleScrollToBottom = () => {
     setOpen(false)
     window.scrollTo(0, document.body.scrollHeight)
+    setInput('')
   }
 
   return (
@@ -78,14 +85,14 @@ function Modal({ setOpen, id, link, item }: any) {
           </div>
           <div className="p-4 md:p-5 space-y-4">
             <p className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-              {showLink ? `Agora que você reservou o item '${item}', você pode comprar pelo link abaixo ou pela loja da sua escolha.` : 'Ao clicar em aceitar você estará reservando este presente para que possa comprar pelo link fornecido aqui ou em outra loja. Por favor, preencha abaixo seu nome.'}
+              {showLink ? `Agora que você reservou o item '${item}', você pode comprar pelo link abaixo ou pela loja da sua escolha. Você pode também mandar o Pix pressionando o botão abaixo.` : 'Ao clicar em aceitar você estará reservando este presente para que possa comprar pelo link fornecido aqui ou em outra loja. Por favor, preencha abaixo seu nome.'}
             </p>
             {!showLink && (
               <input type="text" value={input} onChange={handleInput} className={`w-full rounded-md ${!error ? "" : "border-red-500 border"}`} />
             )}
           </div>
           {showLink && (
-            <div className='flex justify-center p-3 pt-1'>
+            <div className='flex justify-center p-3 py-9'>
               <a
                 data-modal-hide="default-modal"
                 type="button"
@@ -94,6 +101,14 @@ function Modal({ setOpen, id, link, item }: any) {
               >
                 Link
               </a>
+              <button
+                data-modal-hide="default-modal"
+                type="button"
+                onClick={handleScrollToBottom}
+                className="text-white bg-green-700 ml-2 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
+              >
+                Mandar o Pix
+              </button>
             </div>
           )}
           {!showLink && (
@@ -127,7 +142,6 @@ function Modal({ setOpen, id, link, item }: any) {
         </div>
       </div>
     </div>
-
   )
 }
 

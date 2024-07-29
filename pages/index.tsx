@@ -36,9 +36,8 @@ export default function Home({ posts }: Props) {
       <div className='flex sm:justify-between items-center h-[100vh] sm:h-[100vh] px-10 flex-col sm:flex-row text-left'>
         <div className='sm:pr-6 pt-8 sm:pt-0 pb-8 sm:pb-0'>
           <p className='text-2xl rounded-md'>
-            <p className='text-4xl pb-8 sm:pb-16 text-[#B59A86]' style={{ fontFamily: 'Uncial Antiqua, serif' }}>Gostaríamos de celebrar com o Felipe essa nova fase com um chá de casa nova.</p>
-            <p className='text-base text-[#E5E5E8]' style={{ fontFamily: 'Poppins, sans-serif' }}>Este site foi criado para dar detalhes do evento e também facilitar a escolha de presentes, caso você queira dar algum, que vão ajudar Felipe a montar seu novo lar.</p>
-            <p className='text-base text-[#E5E5E8]' style={{ fontFamily: 'Poppins, sans-serif' }}>Aqui você encontrará itens selecionados com carinho para tornar a casa de Felipe ainda mais especial e acolhedora.</p>
+            <p className='text-4xl pb-8 sm:pb-16 text-[#B59A86]' style={{ fontFamily: 'Uncial Antiqua, serif' }}>GOSTARÍAMOS DE CELEBRAR COM O FELIPE ESSA NOVA FASE COM UM CHÁ DE CASA NOVA.</p>
+            <p className='text-base text-[#E5E5E8]' style={{ fontFamily: 'Poppins, sans-serif' }}>Este site foi criado para dar detalhes do evento e também facilitar a escolha de presentes, caso você queira dar algum, que vão ajudar Felipe a montar seu novo lar. Aqui você encontrará itens selecionados com carinho para tornar a casa de Felipe ainda mais especial e acolhedora.</p>
           </p>
         </div>
         <div className='relative bottom-36 sm:flex sm:justify-center sm:align-middle sm:static'>
@@ -73,14 +72,14 @@ export default function Home({ posts }: Props) {
 
         <h1 className='text-center text-4xl text-[#DFBF93] pb-8' style={{ fontFamily: 'Uncial Antiqua, serif' }}>PRESENTES</h1>
 
-        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6 p-2 md:p-6 mx-4'>
+        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6 p-2 md:p-6 mx-4 justify-items-center'>
           <Posts posts={posts} />
         </div>
       </div>
 
       <div className='h-[100vh] w-[100vw] bg-cover bg-center bg-no-repeat' style={{ backgroundImage: "url('/images/footer-bg.jpeg')" }}>
         <div className='mx-8 pt-20'>
-          <h1 className='text-[#F5B971] text-2xl pb-6' style={{ fontFamily: 'Uncial Antiqua, serif' }}>
+          <h1 className='text-[#F5B971] text-3xl pb-6' style={{ fontFamily: 'Uncial Antiqua, serif' }}>
             NÃO ACHOU O QUE QUERIA?
           </h1>
           <p className='text-[#F4F1ED] text-base mx-4' style={{ fontFamily: 'Poppins, sans-serif' }}>
@@ -122,8 +121,7 @@ export const getServerSideProps = async () => {
       buyer,
     'comments': *[
       _type == 'comment' &&
-      post._ref == ^._id &&
-      approved == true
+      post._ref == ^._id
     ],
       mainImage
     }
