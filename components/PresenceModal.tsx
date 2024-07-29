@@ -1,43 +1,55 @@
-import Link from 'next/link'
-import React, { useEffect, useState } from 'react'
-import { SubmitHandler } from 'react-hook-form'
+import React, { useState } from 'react';
+import { SubmitHandler } from 'react-hook-form';
+import { PresenceModalColors, PresenceModalText } from '../constants';
 
-function PresenceModal({ setOpen, id, link, item }: any) {
-  const [input, setInput] = useState("")
-  const [error, setError] = useState(false)
-  const [showLink, setShowLink] = useState(false)
-  const handleClose = () => setOpen(false)
+interface PresenceModalProps {
+  setOpen: (open: boolean) => void;
+  id?: string;
+  link?: string;
+  item?: any;
+}
 
-  const handleInput = (e: any) => {
-    setInput(e.target.value)
-    setError(false)
-  }
+function PresenceModal({ setOpen, id, link, item }: PresenceModalProps) {
+  const [input, setInput] = useState("");
+  const [error, setError] = useState(false);
+  const [showLink, setShowLink] = useState(false);
+  const Text = PresenceModalText
+  const Colors = PresenceModalColors
+
+  const handleClose = () => setOpen(false);
+
+  const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInput(e.target.value);
+    setError(false);
+  };
 
   const onSubmit: SubmitHandler<any> = async (name) => {
-    const data = { name }
+    const data = { name };
     fetch('/api/createAttendance', {
       method: 'POST',
-      body: JSON.stringify(data)
-    }).then(() => {
-      console.log("submitted")
-    }).catch((error): any => {
-      console.log(error)
-    });
+      body: JSON.stringify(data),
+    })
+      .then(() => {
+        console.log("submitted");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   const handleConfirm = () => {
     if (input) {
-      handleClose()
-      onSubmit(input)
+      handleClose();
+      onSubmit(input);
     } else {
-      setError(true)
+      setError(true);
     }
-  }
+  };
 
   const handleScrollToBottom = () => {
-    setOpen(false)
-    window.scrollTo(0, document.body.scrollHeight)
-  }
+    setOpen(false);
+    window.scrollTo(0, document.body.scrollHeight);
+  };
 
   return (
     <div
@@ -47,10 +59,10 @@ function PresenceModal({ setOpen, id, link, item }: any) {
       className="overflow-y-auto overflow-x-hidden fixed inset-0 z-50 flex items-center justify-center"
     >
       <div className="relative p-4 w-full max-w-2xl max-h-full">
-        <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
-          <div className="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
-            <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
-              Confirmar Presença
+        <div className="relative" style={{ backgroundColor: Colors.modalBackground, borderRadius: '0.5rem', boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)' }}>
+          <div className="flex items-center justify-between p-4 md:p-5 border-b rounded-t" style={{ borderColor: '#e5e7eb' }}>
+            <h3 className="text-xl font-semibold" style={{ color: Colors.modalText }}>
+              {Text.confirmPresence}
             </h3>
             <button
               type="button"
@@ -77,11 +89,16 @@ function PresenceModal({ setOpen, id, link, item }: any) {
             </button>
           </div>
           <div className="p-4 md:p-5 space-y-4">
-            <p className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-              Por favor, insira abaixo o(s) nome(s) de quem estará presente e confirme.
+            <p className="text-base leading-relaxed" style={{ color: Colors.textSecondary }}>
+              {Text.instruction}
             </p>
             {!showLink && (
-              <input type="text" value={input} onChange={handleInput} className={`w-full rounded-md ${!error ? "" : "border-red-500 border"}`} />
+              <input
+                type="text"
+                value={input}
+                onChange={handleInput}
+                className={`w-full rounded-md ${!error ? "" : `border ${Colors.borderError}`}`}
+              />
             )}
           </div>
 
@@ -90,16 +107,20 @@ function PresenceModal({ setOpen, id, link, item }: any) {
               data-modal-hide="default-modal"
               type="button"
               onClick={handleConfirm}
-              className="text-white bg-[#c19157] hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center "
+              className={`text-white bg-[${Colors.buttonPrimary}] hover:bg-[${Colors.buttonHover}]`}
+              style={{
+                borderRadius: '0.375rem',
+                fontSize: '0.875rem',
+                padding: '0.625rem 1.25rem'
+              }}
             >
-              Confirmar
+              {Text.submitButton}
             </button>
           </div>
         </div>
       </div>
     </div>
-
-  )
+  );
 }
 
-export default PresenceModal
+export default PresenceModal;

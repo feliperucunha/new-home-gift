@@ -1,7 +1,7 @@
-import Head from 'next/head'
-import Header from '../components/Header'
+import Head from 'next/head';
+import Header from '../components/Header';
 import React from 'react';
-import { sanityClient } from '../sanity'
+import { sanityClient } from '../sanity';
 import { Post } from '../typings';
 import Banner from '../components/Banner';
 import Posts from '../components/Posts';
@@ -11,28 +11,31 @@ import ClockIcon from '../components/ClockIcon';
 import DragonIcon from '../components/DragonIcon';
 import MapButton from '../components/MapButton';
 import PresenceModal from '../components/PresenceModal';
+import { HeadersConstants, PaymentConstants, PresenceMessageConstants, Colors, Text } from '../constants';
 
 interface Props {
   posts: [Post];
 }
 
 export default function Home({ posts }: Props) {
-  const [isOpen, setOpen] = React.useState(false)
+  const [isOpen, setOpen] = React.useState(false);
+  const { metaDescription, metaImage, metaTitle, metaUrl, websiteTitle } = HeadersConstants;
+  const { isActive, presenceMessage } = PresenceMessageConstants;
+  const { paymentSubtitle, paymentTitle, paymentPixCopyAndPaste, paymentPixKey, paymentPixQrCode } = PaymentConstants;
+
   const handleButton = () => {
-    setOpen(true)
-  }
+    setOpen(true);
+  };
+
   return (
-    <div className='overflow-hidden' style={{
-      background: `#3C1E1E`
-    }}>
-      {/* <div className='max-w-7xl mx-auto' style={{ backgroundImage: "url('/images/bricks.png')" }}> */}
+    <div className='overflow-hidden' style={{ background: Colors.background }}>
       <Head>
-        <title>Casa Nova | Felipe</title>
+        <title>{websiteTitle}</title>
         <link rel="icon" href="/favicon.ico" />
-        <meta property="og:title" content="Chá de casa nova do Felipe" />
-        <meta property="og:description" content="Um centro de informações sobre o evento junto com a lista de presentes." />
-        <meta property="og:image" content="https://cdn.sanity.io/images/s5efbgcc/production/02d87a6dcd00586b8d5e2811e8df0c89d6f7d577-1088x1106.png" />
-        <meta property="og:url" content="https://new-home-gift.vercel.app/" />
+        <meta property="og:title" content={metaTitle} />
+        <meta property="og:description" content={metaDescription} />
+        <meta property="og:image" content={metaImage} />
+        <meta property="og:url" content={metaUrl} />
         <meta property="og:type" content="website" />
       </Head>
 
@@ -41,8 +44,12 @@ export default function Home({ posts }: Props) {
       <div className='flex sm:justify-between items-center h-[100vh] sm:h-[100vh] px-10 flex-col sm:flex-row text-left'>
         <div className='sm:pr-6 pt-8 sm:pt-0 pb-8 sm:pb-0'>
           <p className='text-2xl rounded-md'>
-            <p className='text-4xl pb-8 sm:pb-16 text-[#B59A86]' style={{ fontFamily: 'Uncial Antiqua, serif' }}>GOSTARÍAMOS DE CELEBRAR COM O FELIPE ESSA NOVA FASE COM UM CHÁ DE CASA NOVA.</p>
-            <p className='text-base text-[#E5E5E8]' style={{ fontFamily: 'Poppins, sans-serif' }}>Este site foi criado para dar detalhes do evento e também facilitar a escolha de presentes, caso você queira dar algum, que vão ajudar Felipe a montar seu novo lar. Aqui você encontrará itens selecionados com carinho para tornar a casa de Felipe ainda mais especial e acolhedora.</p>
+            <p className='text-4xl pb-8 sm:pb-16' style={{ color: Colors.textSecondary, fontFamily: 'Uncial Antiqua, serif' }}>
+              {Text.title}
+            </p>
+            <p className='text-base' style={{ color: Colors.textPrimary, fontFamily: 'Poppins, sans-serif' }}>
+              {Text.description}
+            </p>
           </p>
         </div>
         <div className='relative bottom-36 sm:flex sm:justify-center sm:align-middle sm:static'>
@@ -56,27 +63,33 @@ export default function Home({ posts }: Props) {
 
       <div className='flex justify-center items-center flex-col h-[60vh] sm:h-[100vh] bg-no-repeat bg-left-top bg-cover mt-16' style={{ backgroundImage: "url('/images/mapa.png')" }}>
         <div className='mt-32 px-8 sm:mt-[15rem]'>
-          <div className='flex items-center pb-6 text-xl text-[#E5E5E8]'>
-            <GiCrossMark fill='#F5B971' stroke='#F5B971' />
-            <p className='pl-2 sm:text-4xl' style={{ fontFamily: 'Uncial Antiqua, serif' }}>RUA FREDERICO MAURER, 2395</p>
+          <div className='flex items-center pb-6 text-xl' style={{ color: Colors.textPrimary }}>
+            <GiCrossMark fill={Colors.mapIcon} stroke={Colors.mapIcon} />
+            <p className='pl-2 sm:text-4xl' style={{ fontFamily: 'Uncial Antiqua, serif' }}>
+              {Text.address}
+            </p>
           </div>
-          <div className='flex items-center text-xl text-[#E5E5E8] mb-8'>
-            <ClockIcon fill='#F5B971' />
-            <p className='pl-2 sm:text-4xl' style={{ fontFamily: 'Uncial Antiqua, serif' }}>12/08/2024 ÀS 19H</p>
+          <div className='flex items-center text-xl mb-8' style={{ color: Colors.textPrimary }}>
+            <ClockIcon fill={Colors.mapIcon} />
+            <p className='pl-2 sm:text-4xl' style={{ fontFamily: 'Uncial Antiqua, serif' }}>
+              {Text.date}
+            </p>
           </div>
           <div className='flex flex-col w-52 sm:w-60'>
-            <MapButton address="RUA FREDERICO MAURER, 2395" />
-            <button onClick={handleButton} className={`mt-8 w-auto text-white hover:bg-[#80613a] focus:ring-4 focus:outline-none focus:ring-[#783131] font-medium rounded-md text-sm px-5 py-2.5 text-center bg-[#783131]`}>Confirmar Presença</button>
+            <MapButton address={Text.address} />
+            <button onClick={handleButton} className={`mt-8 w-auto text-white hover:bg-[${Colors.buttonHover}] focus:ring-4 focus:outline-none focus:ring-[${Colors.buttonPrimary}] font-medium rounded-md text-sm px-5 py-2.5 text-center`} style={{ backgroundColor: Colors.buttonPrimary }}>
+              {Text.confirmPresence}
+            </button>
           </div>
           {isOpen && <PresenceModal setOpen={setOpen} />}
         </div>
-        <DragonIcon height='300px' className='relative left-48 top-20 mt-[-13rem] sm:h-[35rem] sm:left-[30rem] sm:mt-[-10rem]' fill='#c19157' />
+        <DragonIcon height='300px' className='relative left-48 top-20 mt-[-13rem] sm:h-[35rem] sm:left-[30rem] sm:mt-[-10rem]' fill={Colors.dragonIcon} />
       </div>
 
       <div className='mt-20 mb-12'>
-
-        <h1 className='text-center text-4xl text-[#DFBF93] pb-8' style={{ fontFamily: 'Uncial Antiqua, serif' }}>PRESENTES</h1>
-
+        <h1 className='text-center text-4xl' style={{ color: Colors.headerText, fontFamily: 'Uncial Antiqua, serif' }}>
+          PRESENTES
+        </h1>
         <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6 p-2 md:p-6 mx-4 justify-items-center'>
           <Posts posts={posts} />
         </div>
@@ -84,36 +97,42 @@ export default function Home({ posts }: Props) {
 
       <div className='h-[100vh] w-[100vw] bg-cover bg-center bg-no-repeat' style={{ backgroundImage: "url('/images/footer-bg.jpeg')" }}>
         <div className='mx-8 pt-20'>
-          <h1 className='text-[#F5B971] text-3xl pb-6' style={{ fontFamily: 'Uncial Antiqua, serif' }}>
-            NÃO ACHOU O QUE QUERIA?
+          <h1 className='text-3xl' style={{ color: Colors.footerTitle, fontFamily: 'Uncial Antiqua, serif' }}>
+            {paymentTitle}
           </h1>
-          <p className='text-[#F4F1ED] text-base mx-4' style={{ fontFamily: 'Poppins, sans-serif' }}>
-            Não tem problema, caso ainda queira presentar com algo você pode contribuir diretamente pelo Pix abaixo para que o Felipe possa comprar um robô aspirador no Paraguai no natal hehehe.
+          <p className='text-base mx-4 mt-2' style={{ color: Colors.footerText, fontFamily: 'Poppins, sans-serif' }}>
+            {paymentSubtitle}
           </p>
         </div>
         <div className='sm:flex sm:justify-center sm:items-center sm:flex-col'>
           <div className='mt-8 mx-12 sm:w-80'>
-            <p className='text-[#F4F1ED]' style={{ fontFamily: 'Poppins, sans-serif' }}>Pix Copia e cola:</p>
+            <p className='text-[#F4F1ED]' style={{ fontFamily: 'Poppins, sans-serif' }}>
+              {Text.paymentPixCopyAndPaste}
+            </p>
             <div className='bg-white rounded-md'>
-              <CopyToClipboard text={'00020126330014BR.GOV.BCB.PIX0111013129372975204000053039865802BR5925Felipe Ruben Costa da Cun6009SAO PAULO62140510VQ6dDL1nEp6304E28B'} />
+              <CopyToClipboard text={paymentPixCopyAndPaste} />
             </div>
           </div>
           <div className='mt-2 mx-12 sm:w-80'>
-            <p className='text-[#F4F1ED]' style={{ fontFamily: 'Poppins, sans-serif' }}>Pix CPF:</p>
+            <p className='text-[#F4F1ED]' style={{ fontFamily: 'Poppins, sans-serif' }}>
+              {Text.paymentPixKey}
+            </p>
             <div className='bg-white rounded-md'>
-              <CopyToClipboard text={'01312937297'} />
+              <CopyToClipboard text={paymentPixKey} />
             </div>
           </div>
         </div>
         <div className='flex justify-center items-center pt-0 h-1/3'>
-          <img src='/images/qr-code.jpeg' className='w-60 h-70' />
+          <img src={paymentPixQrCode} className='w-60 h-70' />
         </div>
       </div>
-      <div className='text-white bg-[#3C1E1E] text-center' style={{ fontFamily: 'Poppins, sans-serif' }}>
-        Por favor, confirme sua presença.
-      </div>
+      {isActive && (
+        <div className={`text-white flex justify-center`} style={{ backgroundColor: Colors.background, fontFamily: 'Poppins, sans-serif' }}>
+          {presenceMessage}
+        </div>
+      )}
     </div>
-  )
+  );
 }
 
 export const getServerSideProps = async () => {

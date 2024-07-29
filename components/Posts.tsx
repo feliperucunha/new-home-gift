@@ -15,15 +15,15 @@ function Posts({ posts }: Props) {
     setOpen(true)
   }
 
-  console.log(posts)
-
   return (
     <>
       {posts.map(post => (
         <div className={`w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow  ${post?.comments[0] ? 'opacity-70' : 'opacity-100'}`}>
           <div className='min-h-[20rem] min-w-[20rem] flex items-center justify-center'>
             {post?.mainImage ? (
-              <img className="p-8 rounded-t-lg object-contain max-w-full max-h-60" src={urlFor(post?.mainImage).url()!} alt="product image" />
+              <a href={post.link} target="_blank" >
+                <img className="p-8 rounded-t-lg object-contain max-w-full max-h-60" src={urlFor(post?.mainImage).url()!} alt="product image" />
+              </a>
             ) : null}
           </div>
           <div className="px-5 pb-5">

@@ -1,4 +1,5 @@
 import React from 'react'
+import { BannerConstants } from '../constants';
 
 function Banner() {
   const scrollDown = () => {
@@ -24,17 +25,22 @@ function Banner() {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
+  const { bigTitle, bottomTitle, fontColor, image, secondBottomTitle, smallTitle } = BannerConstants
+
+  const imageUrl = `url(${image})`
+
   return (
-    <div className='flex justify-center items-center pb-16 sm:pb-0 border-y border-black border-t-0 bg-red-900 lg:py-5 w-full h-[100vh] bg-no-repeat bg-center bg-cover' style={{ backgroundImage: "url('/images/top-bg.png')" }}>
+    <div className='flex justify-center items-center pb-16 sm:pb-0 border-y border-black border-t-0 bg-red-900 lg:py-5 w-full h-[100vh] bg-no-repeat bg-center bg-cover' style={{ backgroundImage: imageUrl }}>
       <div className='text-center'>
-        <p className='text-[#E5E5E8] pb-6' style={{ fontFamily: 'Uncial Antiqua, serif' }}>BEM VINDO AO</p>
-        <h1 className='sm:text-7xl text-5xl font-bold font-serif text-[#E5E5E8] px-10 pb-6' style={{ fontFamily: 'Uncial Antiqua, serif' }}>
-          CASTELO DO FELIPE
+        <p className={`text-[${fontColor}] pb-6`} style={{ fontFamily: 'Uncial Antiqua, serif' }}>{smallTitle}</p>
+        <h1 className={`sm:text-7xl text-5xl font-bold font-serif text-[${fontColor}] px-10 pb-6`} style={{ fontFamily: 'Uncial Antiqua, serif' }}>
+          {bigTitle}
         </h1>
         <div className='flex items-center justify-center flex-col sm:flex-row'>
-        <p className='line-through text-[#E5E5E8] text-3xl pr-3' style={{ fontFamily: 'Poppins, sans-serif' }}>CHÁ</p> 
-          <h1 className='text-3xl font-bold font-serif text-[#E5E5E8]' style={{ fontFamily: 'Poppins, sans-serif' }}>
-            CHURRASCO DE CASA NOVA
+        <p className={`line-through text-[${fontColor}] text-3xl pr-3`} style={{ fontFamily: 'Poppins, sans-serif' }}>{bottomTitle}</p> 
+          <h1 className={`text-3xl font-bold font-serif text-[${fontColor}]`} style={{ fontFamily: 'Poppins, sans-serif' }}>
+            {secondBottomTitle}
           </h1>
         </div>
       </div>

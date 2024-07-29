@@ -1,13 +1,15 @@
 import React from 'react';
+import { locationLink } from '../constants';
 
 const MapButton = (address: any) => {
 
+  
   // const openGoogleMaps = () => {
   //   const url = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
   //   window.open(url, '_blank');
   // };
   const openGoogleMaps = () => {
-    const url = 'https://maps.app.goo.gl/KXKHab4JEH1sj8wY9';
+    const url = locationLink;
     window.open(url, '_blank');
   };
 
