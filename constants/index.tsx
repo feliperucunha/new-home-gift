@@ -2,7 +2,7 @@
 export const HeadersConstants = {
   backgroundColor: '#3C1E1E',
   websiteTitle: 'Casa Nova | Felipe',
-  metaTitle: 'Chá de casa nova do Felipe',
+  metaTitle: 'Festa de casa nova e aniversário do Felipe',
   metaDescription: 'Um centro de informações sobre o evento junto com a lista de presentes.',
   metaUrl: 'https://new-home-gift.vercel.app/',
   metaImage: 'https://cdn.sanity.io/images/s5efbgcc/production/02d87a6dcd00586b8d5e2811e8df0c89d6f7d577-1088x1106.png'

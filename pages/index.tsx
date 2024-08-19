@@ -65,13 +65,13 @@ export default function Home({ posts }: Props) {
         <div className='mt-32 px-8 sm:mt-[15rem]'>
           <div className='flex items-center pb-6 text-xl' style={{ color: Colors.textPrimary }}>
             <GiCrossMark fill={Colors.mapIcon} stroke={Colors.mapIcon} />
-            <p className='pl-2 sm:text-4xl' style={{ fontFamily: 'Uncial Antiqua, serif' }}>
+            <p className='pl-2 sm:text-4xl' style={{ fontFamily: 'Poppins, sans-serif' }}>
               {Text.address}
             </p>
           </div>
           <div className='flex items-center text-xl mb-8' style={{ color: Colors.textPrimary }}>
             <ClockIcon fill={Colors.mapIcon} />
-            <p className='pl-2 sm:text-4xl' style={{ fontFamily: 'Uncial Antiqua, serif' }}>
+            <p className='pl-2 sm:text-4xl' style={{ fontFamily: 'Poppins, sans-serif' }}>
               {Text.date}
             </p>
           </div>
