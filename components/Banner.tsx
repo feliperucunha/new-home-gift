@@ -31,7 +31,7 @@ function Banner() {
   const imageUrl = `url(${image})`
 
   return (
-    <div className='flex justify-center items-center pb-16 sm:pb-0 border-y border-black border-t-0 bg-red-900 lg:py-5 w-full h-[100vh] bg-no-repeat bg-center bg-cover' style={{ backgroundImage: imageUrl }}>
+    <div className='flex text-[#E5E5E8] justify-center items-center pb-16 sm:pb-0 border-y border-black border-t-0 bg-red-900 lg:py-5 w-full h-[100vh] bg-no-repeat bg-center bg-cover' style={{ backgroundImage: imageUrl }}>
       <div className='text-center'>
         <p className={`text-[${fontColor}] pb-6`} style={{ fontFamily: 'Uncial Antiqua, serif' }}>{smallTitle}</p>
         <h1 className={`sm:text-7xl text-5xl font-bold font-serif text-[${fontColor}] px-10 pb-6`} style={{ fontFamily: 'Uncial Antiqua, serif' }}>

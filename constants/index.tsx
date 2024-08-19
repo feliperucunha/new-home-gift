@@ -12,8 +12,8 @@ export const BannerConstants = {
   image: '/images/top-bg.png',
   smallTitle: 'BEM VINDO AO',
   bigTitle: 'CASTELO DO FELIPE',
-  bottomTitle: 'CHÁ',
-  secondBottomTitle: 'CHURRASCO DE CASA NOVA',
+  bottomTitle: '',
+  secondBottomTitle: 'CHURRASCO DE CASA NOVA E ANIVERSÁRIO',
   fontColor: '#E5E5E8'
 }
 
@@ -32,10 +32,10 @@ export const Colors = {
 };
 
 export const Text = {
-  title: 'GOSTARÍAMOS DE CELEBRAR COM O FELIPE ESSA NOVA FASE COM UM CHÁ DE CASA NOVA.',
+  title: 'GOSTARÍAMOS DE CELEBRAR COM O FELIPE ESSA NOVA FASE COM UMA FESTINHA.',
   description: 'Este site foi criado para dar detalhes do evento e também facilitar a escolha de presentes, caso você queira dar algum, que vão ajudar Felipe a montar seu novo lar. Aqui você encontrará itens selecionados com carinho para tornar a casa de Felipe ainda mais especial e acolhedora.',
   address: 'RUA FREDERICO MAURER, 2395',
-  date: '12/08/2024 ÀS 19H',
+  date: '07/09/2024 ÀS 19H',
   confirmPresence: 'Confirmar Presença',
   paymentPixCopyAndPaste: 'Pix Copia e cola:',
   paymentPixKey: 'Pix CPF:',
@@ -86,7 +86,7 @@ export const GiftModalColors = {
 export const GiftModalText = {
   thankYou: "Muito obrigado!",
   confirmation: "Tem certeza?",
-  instructionLink: "Agora que você reservou o item '{item}', você pode comprar pelo link abaixo ou pela loja da sua escolha. Você pode também mandar o Pix pressionando o botão abaixo.",
+  instructionLink: "Agora que você reservou o item '{item}', você pode comprar pelo link abaixo (caso houver) ou pela loja da sua escolha. Você pode também mandar o Pix pressionando o botão abaixo.",
   instructionReserve: "Ao clicar em aceitar você estará reservando este presente para que possa comprar pelo link fornecido aqui ou em outra loja. Por favor, preencha abaixo seu nome.",
   linkButton: "Link",
   pixButton: "Mandar o Pix",

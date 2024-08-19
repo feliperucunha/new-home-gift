@@ -11,8 +11,10 @@ interface Props {
 
 function Posts({ posts }: Props) {
   const [isOpen, setOpen] = React.useState(false)
-  const handleButton = () => {
+  const [selectedItem, setSelectedItem] = React.useState({} as Post)
+  const handleButton = (post: Post) => {
     setOpen(true)
+    setSelectedItem(post)
   }
 
   return (
@@ -27,18 +29,20 @@ function Posts({ posts }: Props) {
             ) : null}
           </div>
           <div className="px-5 pb-5">
-            <a href={post.link} target="_blank">
+            <a href={post.link ?? ''} target="_blank">
               <h5 className="text-xl font-semibold tracking-tight text-gray-900">{post.title}</h5>
             </a>
-            <a href={post.link} target="_blank" className="flex items-center mt-2.5 mb-5">
-              <a href={post.link} target="_blank" className="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ms-3">Link</a>
-            </a>
+            {post.link ? (
+              <a href={post.link} target="_blank" className="flex items-center mt-2.5 mb-5">
+                <a href={post.link} target="_blank" className="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ms-3">Link</a>
+              </a>
+            ) : <div className='p-5'></div>}
             <div className="flex items-center justify-between">
               <span className="text-3xl font-bold text-gray-900">R${post.price}</span>
-              <button onClick={handleButton} disabled={!!post?.comments[0]} className={`text-white hover:bg-[#80613a] focus:ring-4 focus:outline-none focus:ring-[#c19157] font-medium rounded-lg text-sm px-5 py-2.5 text-center  ${post?.comments[0] ? '!bg-slate-400' : 'bg-[#c19157]'}`}>{post?.comments[0] ? `Reservado por ${post?.comments[0].name}` : 'Presentear'}</button>
+              <button onClick={() => handleButton(post)} disabled={!!post?.comments[0]} className={`text-white hover:bg-[#80613a] focus:ring-4 focus:outline-none focus:ring-[#c19157] font-medium rounded-lg text-sm px-5 py-2.5 text-center  ${post?.comments[0] ? '!bg-slate-400' : 'bg-[#c19157]'}`}>{post?.comments[0] ? `Reservado por ${post?.comments[0].name}` : 'Presentear'}</button>
             </div>
           </div>
-          {isOpen && <Modal setOpen={setOpen} id={post._id} link={post.link} item={post.title} />}
+          {isOpen && <Modal setOpen={setOpen} id={selectedItem._id} link={selectedItem.link} item={selectedItem.title} />}
         </div>
       ))}
     </>
