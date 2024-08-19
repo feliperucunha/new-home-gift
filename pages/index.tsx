@@ -83,9 +83,9 @@ export default function Home({ posts }: Props) {
           </div>
           {isOpen && <PresenceModal setOpen={setOpen} />}
 
-          <p className='text-white mt-20' style={{ fontFamily: 'Poppins, sans-serif' }}>Obs: tragam suas bebidas</p>
+          <p className='text-white mt-10 w-72' style={{ fontFamily: 'Poppins, sans-serif' }}>Obs: Teremos uma variedade de bebidas não alcoólicas à disposição, mas se preferir algo diferente, fique à vontade para trazer a sua bebida favorita.</p>
         </div>
-        <DragonIcon height='300px' className='relative left-48 top-20 mt-[-13rem] sm:h-[35rem] sm:left-[30rem] sm:mt-[-10rem]' fill={Colors.dragonIcon} />
+        <DragonIcon height='300px' className='relative left-48 top-16 mt-[-13rem] sm:h-[35rem] sm:left-[30rem] sm:mt-[-10rem]' fill={Colors.dragonIcon} />
       </div>
 
       <div className='mt-20 mb-12'>
