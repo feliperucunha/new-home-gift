@@ -85,10 +85,10 @@ export const GiftModalColors = {
 
 export const GiftModalText = {
   thankYou: "Muito obrigado!",
-  confirmation: "Tem certeza?",
-  instructionLink: "Agora que você reservou o item '{item}', você pode comprar pelo link abaixo (caso houver) ou pela loja da sua escolha. Você pode também mandar o Pix pressionando o botão abaixo.",
-  instructionReserve: "Ao clicar em aceitar você estará reservando este presente para que possa comprar pelo link fornecido aqui ou em outra loja. Por favor, preencha abaixo seu nome.",
-  linkButton: "Link",
+  confirmation: "Reserva do presente",
+  instructionLink: "Agora que você reservou o item '{item}', escolha uma das opções abaixo",
+  instructionReserve: "Insira seu nome abaixo",
+  linkButton: "Comprar diretamente da loja",
   pixButton: "Mandar o Pix",
   cancelButton: "Cancelar",
   reserveButton: "Reservar",

@@ -114,7 +114,8 @@ function Modal({ setOpen, id, link, item }: ModalProps) {
               style={{ color: Colors.textGray }}
             >
               {showLink
-                ? Text.instructionLink.replace('{item}', item || '')
+                ? 
+                Text.instructionLink.replace('{item}', item || '')
                 : Text.instructionReserve}
             </p>
             {!showLink && (
@@ -127,12 +128,12 @@ function Modal({ setOpen, id, link, item }: ModalProps) {
             )}
           </div>
           {showLink && (
-            <div className="flex justify-center p-3 py-9">
+            <div className="flex justify-center p-3 py-9 pt-0">
               {link ? (
                 <a
                   data-modal-hide="default-modal"
                   href={link}
-                  className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                  className="text-white flex justify-center items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                 >
                   {Text.linkButton}
                 </a>
@@ -141,7 +142,7 @@ function Modal({ setOpen, id, link, item }: ModalProps) {
                 data-modal-hide="default-modal"
                 type="button"
                 onClick={handleScrollToBottom}
-                className="text-white bg-green-700 ml-2 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
+                className="text-white bg-green-700 ml-2 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-6 py-6  text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
               >
                 {Text.pixButton}
               </button>
@@ -157,14 +158,14 @@ function Modal({ setOpen, id, link, item }: ModalProps) {
               >
                 {Text.cancelButton}
               </button>
-              <button
+              {/* <button
                 data-modal-hide="default-modal"
                 type="button"
                 onClick={handleScrollToBottom}
                 className="text-white bg-green-700 mr-2 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
               >
                 {Text.pixButton}
-              </button>
+              </button> */}
               <button
                 data-modal-hide="default-modal"
                 type="button"
